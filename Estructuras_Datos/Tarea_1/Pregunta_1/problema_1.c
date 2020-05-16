@@ -3,25 +3,14 @@
 #include <string.h>
 #define MAX_CHAR 204
 #define MAX_S 1000000
-//#define MAX_P 1000
 
 int es_prefijo(char* S, char* P, int n);
 char** buscar_str(char** S, int n, char* P, int* largo);
 void escribir_archivos(char* nombre_archivo_S, char* nombre_archivo_P);
 
 int main() {
-    /*Probar por si la cago
-    char* S[MAX_CHAR] = {"aaaww", "aiwffjw", "asfsfad", "aaaoowo"};
-    char* P = "aaa";
-    int largo;
-    char** resultado = buscar_str(S, 4, P, &largo);
-    printf("%d\n", largo);
-    for (int i = 0; i < largo; ++i)
-        printf("%s\n", resultado[i]);
-    */
     escribir_archivos("S.txt", "P.txt");
-    //free((void*) resultado);
-    //
+
     return 0;
 }
 
@@ -45,6 +34,19 @@ char** buscar_str(char** S, int n, char* P, int* largo) {
     return resultado;
 }
 
+/*****
+* char** buscar_str
+******
+* Busca
+******
+* Input:
+* tipoParámetro NombreParámetro : Descripción Parámetro
+* .......
+******
+* Returns:
+*   char**, La función retorna un arreglo de strings pertenecientes al parametro S en el cual cada elemento tiene como prefijo al string P.
+*****/
+
 int es_prefijo(char* S, char* P, int n) {
     for (int i = 0; i < n && P[i] != '\0'; ++i) {
         if (S[i] != P[i])
@@ -52,6 +54,19 @@ int es_prefijo(char* S, char* P, int n) {
     }
     return 1;
 }
+
+/*****
+* TipoFunción NombreFunción
+******
+* Resumen Función
+******
+* Input:
+* tipoParámetro NombreParámetro : Descripción Parámetro
+* .......
+******
+* Returns:
+* TipoRetorno, Descripción retorno
+*****/
 
 void escribir_archivos(char* nombre_archivo_S, char* nombre_archivo_P) {
     FILE *archivo_S, *archivo_P;
@@ -115,3 +130,16 @@ void escribir_archivos(char* nombre_archivo_S, char* nombre_archivo_P) {
     free((void *) S);
     fclose(archivo_P);
 }
+
+/*****
+* TipoFunción NombreFunción
+******
+* Resumen Función
+******
+* Input:
+* tipoParámetro NombreParámetro : Descripción Parámetro
+* .......
+******
+* Returns:
+* TipoRetorno, Descripción retorno
+*****/
