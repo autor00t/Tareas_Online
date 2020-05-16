@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MAX_CHAR 200
+#define MAX_CHAR 204
 #define MAX_S 1000000
-#define MAX_P 1000
+//#define MAX_P 1000
 
 int es_prefijo(char* S, char* P, int n);
 char** buscar_str(char** S, int n, char* P, int* largo);
