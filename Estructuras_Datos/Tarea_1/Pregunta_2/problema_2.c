@@ -20,6 +20,7 @@ int main(int argc, char** argv) {
     return 0;
 }
 
+
 void actualizarSaldos (char* clientes, char* transacciones) {
     FILE* archivo_clientes, *archivo_transacciones;
     if (archivo_clientes = fopen(clientes, "r+")) {
@@ -84,3 +85,21 @@ void actualizarSaldos (char* clientes, char* transacciones) {
     fclose(archivo_clientes);
     fclose(archivo_transacciones);
 }
+
+/*****
+* void actualizarSaldos
+******
+* El papel de esta función es ir tomando cliente a cliente su número de cuenta para luego recorrer el archivo
+* transacciones y buscar todas las operaciones bancarias en las que esté presente esta misma. Cada vez que la
+* función encuentra una operación bancaria relacionada a la cuenta, cambia el valor de un saldo temporal, para
+* luego obtener el saldo final y este actualizarlo en el archivo clientes.
+******
+* Input:
+* char* clientes     : Corresponde a un archivo binario, el cual procederemos a actualizar.
+* char* transacciones: Corresponde a un archivo ASCII, que iremos recorriendo para encontrar operaciones bancarias.
+* ....... 
+******
+* Returns:
+* void, esta función no retorna nada en sí, si no que actualiza el archivo binario
+* clientes, que va a contener todos los saldos post transacciones.
+*****/
