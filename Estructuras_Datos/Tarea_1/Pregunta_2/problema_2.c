@@ -11,8 +11,8 @@ typedef struct {
 void actualizarSaldos (char* clientes, char* transacciones);
 
 int main(int argc, char** argv) {
-    if (argc == 0) {
-        printf("No se ingresaron suficientes nombres de archivo.");
+    if (argc != 3) {
+        printf("No se ingresaron suficientes nombres de archivo.\n");
         exit(1);
     }
     actualizarSaldos(argv[1], argv[2]);
@@ -23,11 +23,11 @@ int main(int argc, char** argv) {
 
 void actualizarSaldos (char* clientes, char* transacciones) {
     FILE* archivo_clientes, *archivo_transacciones;
-    if (archivo_clientes = fopen(clientes, "r+")) {
+    if ((archivo_clientes = fopen(clientes, "r+"))) {
         printf("Hubo un error al abrir el archivo %s.", clientes);
         exit(1);
     }
-    if (archivo_transacciones = fopen(clientes, "r")){
+    if ((archivo_transacciones = fopen(clientes, "r"))) {
         printf("Hubo un error al abrir el archivo %s.", transacciones);
         exit(1);
     }
@@ -35,11 +35,10 @@ void actualizarSaldos (char* clientes, char* transacciones) {
     clienteBanco cuenta;
 
     int contador = 0;
-    char temp;
     while (fread(&cuenta, sizeof(clienteBanco), 1, archivo_clientes) != 0) {
 
         char tipo_transaccion = getc(archivo_transacciones);
-        int cuenta_1, cuenta_2, cantidad_dinero, bandera = 1, dinero_temporal = cuenta.saldo;
+        int cuenta_1, cuenta_2, cantidad_dinero, bandera = 1;
 
         while (bandera) {
             if (tipo_transaccion == '+') {
