@@ -97,33 +97,49 @@ void escribir_archivos(char *nombre_archivo_S, char *nombre_archivo_P)
     char **S = (char **)malloc(sizeof(char *) * MAX_S);
 
     char temp;
-    int n = 0, s_array = 0, s_string = 0;
+    int n = 0, s_array = 0, s_string = 0, bandera = 1;
     S[s_array] = (char *)malloc(sizeof(char) * MAX_CHAR);
-    while ((temp = getc(archivo_S)) != EOF)
+    while (bandera)
     {
-        if (temp == '\n')
+        temp = getc(archivo_S);
+        if (temp == '\n' || temp == EOF)
         {
             S[s_array++][s_string] = '\0';
+            if (!strcmp(S[s_array - 1], ""))
+            {
+                break;
+            }
             S[s_array] = (char *)malloc(sizeof(char) * MAX_CHAR);
             s_string = 0;
             n++;
+            if (temp == EOF) {
+                bandera = 0;
+            }
         }
         else
         {
             S[s_array][s_string++] = temp;
         }
     }
+
     S = (char **)realloc(S, sizeof(char *) * n);
     fclose(archivo_S);
-
+    
     char **resultado;
     int p_array = 0, largo;
-    while ((temp = getc(archivo_P)) != EOF)
+    bandera = 1;
+
+    while (bandera)
     {
-        if (temp == '\n')
+        temp = getc(archivo_P);
+
+        if (temp == '\n' || temp == EOF)
         {
             P[p_array] = '\0';
             p_array = 0;
+            if (!strcmp(P, "")){
+                break;
+            }
             resultado = buscar_str(S, n, P, &largo);
             FILE *fp = fopen(strcat(P, ".out"), "w");
             if (fp == NULL)
@@ -138,6 +154,9 @@ void escribir_archivos(char *nombre_archivo_S, char *nombre_archivo_P)
             }
             fclose(fp);
             free((void *)resultado);
+            if (temp == EOF) {
+                bandera = 0;
+            }
         }
         else
         {
