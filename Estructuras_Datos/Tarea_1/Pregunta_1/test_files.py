@@ -1,4 +1,5 @@
 import glob, os
+
 def solucion_correcta():
     os.chdir(r"D:\Dev\Tareas_Online\Estructuras_Datos\Tarea_1\Pregunta_1\solucion")
 
@@ -7,20 +8,22 @@ def solucion_correcta():
         file_object  = open(file, "r") 
         solucion[file] = []
         for linea in file_object:
-            solucion[file].append((linea.strip().split()))
+            linea = linea.strip().split()
+            solucion[file].append(linea)
 
         file_object.close()
 
     os.chdir(r"D:\Dev\Tareas_Online\Estructuras_Datos\Tarea_1\Pregunta_1")
 
     for file in glob.glob("*.out"):
-        resultados = []
         file_object = open(file, "r")
-        i = 0
         for linea in file_object:
-            if solucion[file][i] != (linea.strip().split()) and linea != "":
+            linea = linea.strip().split()
+            if linea not in solucion[file] and linea != "":
                 return False
-            i += 1
+            del(solucion[file][solucion[file].index(linea)])
+        if solucion[file] != []:
+            return False
     return True
 
 if solucion_correcta():

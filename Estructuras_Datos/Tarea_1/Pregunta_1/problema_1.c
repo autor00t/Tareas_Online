@@ -58,7 +58,7 @@ int es_prefijo(char *S, char *P)
 {
     for (int i = 0; P[i] != '\0'; ++i)
     {
-        if (S[i] != P[i])
+        if (S[i] != P[i] || S[i] == '\0')
             return 0;
     }
     return 1;
@@ -137,7 +137,8 @@ void escribir_archivos(char *nombre_archivo_S, char *nombre_archivo_P)
         {
             P[p_array] = '\0';
             p_array = 0;
-            if (!strcmp(P, "")){
+            if (!strcmp(P, ""))
+            {
                 break;
             }
 
@@ -156,7 +157,8 @@ void escribir_archivos(char *nombre_archivo_S, char *nombre_archivo_P)
             }
             fclose(fp);
             free((void *)resultado);
-            if (temp == EOF) {
+            if (temp == EOF) 
+            {
                 bandera = 0;
             }
         }
