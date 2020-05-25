@@ -58,7 +58,7 @@ int es_prefijo(char *S, char *P)
 {
     for (int i = 0; P[i] != '\0'; ++i)
     {
-        if (S[i] != P[i] || S[i] == '\0')
+        if (S[i] != P[i])
             return 0;
     }
     return 1;
@@ -140,8 +140,14 @@ void escribir_archivos(char *nombre_archivo_S, char *nombre_archivo_P)
             if (!strcmp(P, "")){
                 break;
             }
+            //for (int k = 0; k < strlen(P); k++){ //webeo xd
+            //    printf("%c ", P[k]);
+            //}
             resultado = buscar_str(S, n, P, &largo);
-            FILE *fp = fopen(strcat(P, ".out"), "w");
+            //for (int j = 0; j < largo; ++j) { //íras awersdr sfss
+            //    printf("%s\n", resultado[j]);
+            //}
+            FILE *fp = fopen(strcat(P, ".out\0"), "w");
             if (fp == NULL)
             {
                 printf("Ocurrió un error al crear el archivo %s.", P);
@@ -158,7 +164,7 @@ void escribir_archivos(char *nombre_archivo_S, char *nombre_archivo_P)
                 bandera = 0;
             }
         }
-        else
+        else if (temp != '\r')
         {
             P[p_array++] = temp;
         }
