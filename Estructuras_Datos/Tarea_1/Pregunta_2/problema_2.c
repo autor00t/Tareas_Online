@@ -27,7 +27,7 @@ void actualizarSaldos (char* clientes, char* transacciones) {
         printf("Hubo un error al abrir el archivo %s.", clientes);
         exit(1);
     }
-    if ((archivo_transacciones = fopen(clientes, "r"))) {
+    if ((archivo_transacciones = fopen(transacciones, "r"))) {
         printf("Hubo un error al abrir el archivo %s.", transacciones);
         exit(1);
     }
@@ -35,10 +35,12 @@ void actualizarSaldos (char* clientes, char* transacciones) {
     clienteBanco cuenta;
 
     int contador = 0;
+    int cuenta_1, cuenta_2, cantidad_dinero, bandera = 1;
+
     while (fread(&cuenta, sizeof(clienteBanco), 1, archivo_clientes) != 0) {
 
         char tipo_transaccion = getc(archivo_transacciones);
-        int cuenta_1, cuenta_2, cantidad_dinero, bandera = 1;
+        bandera = 1;
 
         while (bandera) {
             if (tipo_transaccion == '+') {
