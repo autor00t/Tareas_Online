@@ -116,7 +116,7 @@ void escribir_archivos(char *nombre_archivo_S, char *nombre_archivo_P)
                 bandera = 0;
             }
         }
-        else
+        else if (temp != '\r')
         {
             S[s_array][s_string++] = temp;
         }
