@@ -1,0 +1,16 @@
+Nombre: Matías González
+Paralelo: 200
+Rol: 201973580-2
+ 
+Nombre: Nicolas Román
+Paralelo: 200
+Rol: 201973582-9
+
+Nombre: Patricio Pérez
+Paralelo: 200
+Rol: 201973560-8
+
+Programación: Como grupo, utilizamos la extensión de Visual Studio Code: Live Share, la cual nos permitió
+trabajar entre todos las mismas líneas de códigos, normalmente lo que ocurría es que si un participante
+tenía una idea ya hecha sobre como trabajar un problema, los otros dos lo ayudaban buscando más ideas 
+en el tutorial de C. 

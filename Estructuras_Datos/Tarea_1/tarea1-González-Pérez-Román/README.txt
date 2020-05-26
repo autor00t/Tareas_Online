@@ -1,0 +1,1 @@
+Utilizamos el compilador gcc mediante Windows Subsystem for Linux(WSL).
