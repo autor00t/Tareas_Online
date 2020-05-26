@@ -39,7 +39,7 @@ void actualizarSaldos (char* clientes, char* transacciones) {
 
     while (fread(&cuenta, sizeof(clienteBanco), 1, archivo_clientes) != 0) {
 
-        char tipo_transaccion = getc(archivo_transacciones);
+        tipo_transaccion = getc(archivo_transacciones);
         bandera = 1;
 
         while (bandera) {
