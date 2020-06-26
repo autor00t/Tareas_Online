@@ -37,8 +37,6 @@ int main() {
       "####"
     
     
-    
-    
     */
     FILE* archivo_entrada = fopen("input1.dat", "r");
     if (archivo_entrada == NULL) {
@@ -122,7 +120,7 @@ int main() {
             while (getValue(&L1)[0] < bloque_temp[0]) {
                 next(&L1);
             }
-
+            
             if (currPos(&L1) != 0) {
                 prev(&L1);
                 
@@ -135,7 +133,7 @@ int main() {
                 }
             }
 
-            if (currPos(&L1) != length(&L1)) {
+            if (currPos(&L1) != length(&L1)) { //(⌐■_■)–︻╦╤─  \(o.o)/
                 if (getValue(&L1)[0] == bloque_temp[1] + 1){
                     bloque_temp[1] = getValue(&L1)[1];
                     erase(&L1);
@@ -148,7 +146,7 @@ int main() {
         }
     }
 
-    if (length(&L2) > 0){
+    if (length(&L2) > 0) {
         int sobrantes = 0;
         moveToStart(&L2);
         while(currPos(&L2) < length(&L2)) {
@@ -167,5 +165,5 @@ int main() {
     deleteList(&L1);
     deleteList(&L2);
    
-    return 0;                                                                                            
+    return 0;                                                                                       
 }
