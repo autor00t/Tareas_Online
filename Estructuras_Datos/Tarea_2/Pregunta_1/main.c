@@ -3,41 +3,6 @@
 #include <stdlib.h>
 
 int main() {
-    /* por si la cagamso xdxdxdxdxdxdxd(*꒦ິ⌓꒦ີ)
-    tLista lista;
-    int itemculiao[] = {1,2};                                 
-    int itemculiao2[] = {3,4};
-    int itemculiao3[] = {5,6};
-    initList(&lista);
-    append(&lista, itemculiao); 
-    append(&lista, itemculiao2);
-    append(&lista, itemculiao3);
-    //moveToEnd(&lista);
-    //printf("%d\n",currPos(&lista));
-    next(&lista);
-    next(&lista);
-    printf("%d\n", erase(&lista));
-    moveToStart(&lista);
-    while (currPos(&lista) < length(&lista)){
-        printf("%d, %d\n", getValue(&lista)[0], getValue(&lista)[1]);
-        next(&lista);
-    }
-    printf("%d\n",length(&lista));
-    
-    (*꒦ິ⌓꒦ີ) 
-    
-    
-      //////     
-    /        \    
-   _|  _   _ |_    
-  |.|-(.)-(.)+.|   aslkdjaskldjaslkdj que wea mi vro
-   \|    J   |/    
-    \   ---  /     
-     \      /     
-      "####"
-    
-    
-    */
     FILE* archivo_entrada = fopen("input1.dat", "r");
     if (archivo_entrada == NULL) {
         printf("Ha ocurrido un error al abrir el archivo.");
@@ -80,7 +45,7 @@ int main() {
             while ((temp = getc(archivo_entrada)) != '\n')
                 ;
         }
-        
+        printf("%c\n", operacion);
         if (operacion == 'm') {
             moveToStart(&L1);
             espacio_suficiente = 0;
@@ -122,7 +87,7 @@ int main() {
             }
             
             if (currPos(&L1) != 0) {
-                prev(&L1);
+                prev(&L1); 
                 
                 if (getValue(&L1)[1] == bloque_temp[0] - 1) {
                     bloque_temp[0] = getValue(&L1)[0];
@@ -133,7 +98,7 @@ int main() {
                 }
             }
 
-            if (currPos(&L1) != length(&L1)) { //(⌐■_■)–︻╦╤─  \(o.o)/
+            if (currPos(&L1) != length(&L1)) {
                 if (getValue(&L1)[0] == bloque_temp[1] + 1){
                     bloque_temp[1] = getValue(&L1)[1];
                     erase(&L1);

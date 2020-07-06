@@ -1,0 +1,7 @@
+50
+4
+malloc 50
+malloc 10
+free 25
+free 1
+

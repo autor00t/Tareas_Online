@@ -11,16 +11,16 @@ typedef struct nodoArbolBin{
 
 typedef struct {
     tNodo *raiz;
-    int nElems; //nonono
+    int nElems; 
 } tABB;
 
-void initTree(tABB* T); //
-void clear(tABB* T);//
-void insert(tABB* T, tipoElem item);//
-void borrar(tABB* T, tipoElem item);//
-int find(tABB* T, tipoElem item);//
+void initTree(tABB* T);
+void clear(tABB* T);
+void insert(tABB* T, tipoElem item);
+void borrar(tABB* T, tipoElem item);
+int find(tABB* T, tipoElem item);
 int size(tABB* T);
-tipoElem* preOrden(tABB* T); // Leer izquierda
-tipoElem sucesor(tABB* T, tipoElem x); //retorna el sucesor, en caso contrario retorna 0;
+tipoElem* preOrden(tABB* T);
+tipoElem sucesor(tABB* T, tipoElem x); 
 
 #endif

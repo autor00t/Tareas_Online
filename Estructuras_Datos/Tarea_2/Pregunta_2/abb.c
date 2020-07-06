@@ -2,9 +2,22 @@
 #include <stdlib.h>
 
 void initTree(tABB* T) {
-    T->raiz = NULL;//noc bro
+    T->raiz = NULL;
     T->nElems = 0;
 }
+
+/*****
+* void initList
+******
+* Inicializa una lista vacia.
+******
+* Input: 
+* tABB* T : Puntero a struct tipo tABB.
+* .......
+******
+* Returns:
+* void, no retorna nada, en su lugar, genera una lista vacía.
+*****/
 
 void clearHelp(tNodo *nodo){
     if (nodo == NULL) return;
@@ -13,11 +26,37 @@ void clearHelp(tNodo *nodo){
     free((void *) nodo); 
 }
 
-void clear(tABB* T) { //РАСПУТИН   РАСПУТИН  РАСПУТИН
+/*****
+* void clearHelp
+******
+* Función recursiva auxiliar que ayuda a limpiar el ABB.
+******
+* Input:
+* tNodo *nodo : Puntero a un nodo del ABB.
+* .......
+******
+* Returns:
+* void, es una funcion recursiva auxiliar que no retorna nada, en su lugar, ayuda a limpiar el árbol, dejándolo vacío.
+*****/
+
+void clear(tABB* T) { 
     clearHelp(T->raiz);
     T->raiz = NULL;
     T->nElems = 0;
 }
+
+/*****
+* void clear 
+******
+* Elimina los elementos del ABB, dejándolo vacío.
+******
+* Input:
+* tABB* T : Puntero a struct tipo tABB.
+* .......
+******
+* Returns:
+* void, no retorna nada, en su lugar, limpia el árbol . 
+*****/
 
 void insertHelp(tNodo** nodo, tNodo* temp) {
     if (*nodo == NULL) {
@@ -33,6 +72,20 @@ void insertHelp(tNodo** nodo, tNodo* temp) {
     }
 }
 
+/*****
+* void insertHelp
+******
+* Función recursiva auxiliar que ayuda a insertar el nodo en el ABB.
+******
+* Input:
+* tNodo** nodo : Doble puntero a un nodo del ABB.
+* tNodo* temp: Puntero a un nodo del ABB.
+* .......
+******
+* Returns:
+* void, es una función recursiva que ayuda a insert para que complete su cometido. 
+*****/
+
 void insert(tABB* T, tipoElem item) {
     tNodo* temp = (tNodo *)malloc(sizeof(tNodo));
     temp->izq = NULL;
@@ -43,13 +96,26 @@ void insert(tABB* T, tipoElem item) {
     T->nElems++;
 }
 
-void removeHelp(tNodo** temp, tipoElem item) {
+/*****
+* void insert 
+******
+* Función que inserta el parametro entregado en el árbol.
+******
+* Input:
+* tABB* T : Puntero a struct tipo tABB.
+* tipoElem item : Tipo de dato del ABB, este caso es un entero (int).
+* .......
+******
+* Returns:
+* void, no retorna nada, en su lugar, su objetivo es insertar el parametro en el árbol ABB.
+*****/
+
+void borrarHelp(tNodo** temp, tipoElem item) {
     if ((*temp)->info == item) {
         if ((*temp)->izq == NULL && (*temp)->der == NULL) {
             free((void*) (*temp));
             (*temp) = NULL;
         }
-        //caso 3: nodo tiene 2 hijos, wea del predecesor
         else if ((*temp)->izq != NULL && (*temp)->der != NULL) {
             tNodo** aux = temp;
             temp = &((*temp)->izq); 
@@ -70,7 +136,6 @@ void removeHelp(tNodo** temp, tipoElem item) {
                 *temp = NULL;
             }
         }
-        //caso 2: nodo tiene 1 hijos, intercambiar por el hijo
         else {
             tNodo* aux;
             if ((*temp)->izq != NULL) {
@@ -88,21 +153,47 @@ void removeHelp(tNodo** temp, tipoElem item) {
     else if (item < (*temp)->info) {
         if ((*temp)->izq == NULL)
             return;
-        removeHelp(&(*temp)->izq, item);  //<---Vomistar no me deja pagar el telefono y despues me cobra intereses
+        borrarHelp(&(*temp)->izq, item);
     }
     else {
         if ((*temp)->der == NULL)
             return;
-        removeHelp(&(*temp)->der, item);
+        borrarHelp(&(*temp)->der, item);
     }
 }
 
+/*****
+* void borrarHelp
+******
+* Función recursiva auxiliar, que ayuda a borrar el nodo correspondiente.
+******
+* Input:
+* tNodo** nodo : Doble puntero a un nodo del ABB.
+* tipoElem item : Tipo de dato del ABB, este caso es un entero (int)
+* .......
+******
+* Returns:
+* void, no retorna nada, en su lugar, ayuda a eliminar el nodo con el valor asociado al input.
+*****/
+
 void borrar(tABB* T, tipoElem item) {
-    //recorrido para encontrar nodo
-    removeHelp(&T->raiz, item);
+    borrarHelp(&T->raiz, item);
     T->nElems--;
 }
-//Arroyuelo : (　-_･) ︻デ═一 ▸              *Mi nota*
+
+/*****
+* void borrar 
+******
+* Función que tiene como objetivo borrar el nodo que contenga el valor entregado como parametro.
+******
+* Input:
+* tABB* T : Puntero a struct tipo tABB.
+* tipoElem item : Tipo de dato del ABB, este caso es un entero (int)
+* .......
+******
+* Returns:
+* void, no retorna nada, en su lugar, elimina el nodo con el valor asociado al input
+*****/
 
 int findHelp(tNodo* nodo, tipoElem item){    
     if (nodo == NULL) return 0;
@@ -114,13 +205,55 @@ int findHelp(tNodo* nodo, tipoElem item){
     else
         return findHelp(nodo->der, item);
 }
+
+/*****
+* int findHelp 
+******
+* Función recursiva auxilar que ayuda a encontrar el nodo que tenga como valor el input entregado.
+******
+* Input:
+* tNodo *nodo : Puntero a un nodo del ABB.
+* tipoElem item : Tipo de dato del ABB, este caso es un entero (int)
+* .......
+******
+* Returns:
+* int, funcion recursiva auxiliar que retorna 0 en el caso de que no se encuentre el nodo, o 1 en el caso contrario.
+*****/
+
 int find(tABB* T, tipoElem item){
     return findHelp(T->raiz, item);
 }
 
+/*****
+* int find 
+******
+* Busca un elemento en el ABB, retornando 0 si no lo encuentra
+******
+* Input:
+* tABB* T : Puntero a struct tipo tABB.
+* tipoElem item : Tipo de dato del ABB, este caso es un entero (int)
+* .......
+******
+* Returns:
+* int, funcion que retorna 0 en  caso de que no se encuentre el nodo, o 1 en el caso contrario.
+*****/
+
 int size(tABB* T) {
     return T->nElems;
 }
+
+/*****
+* int size
+******
+* Retorna el numero de nodos que tiene el ABB.
+******
+* Input:
+* tABB* T : Puntero a struct tipo tABB.
+* .......
+******
+* Returns:
+* int, el entero representa la cantidad de nodos actuales en el ABB.
+*****/
 
 void preOrdenHelp(tNodo* nodo, tipoElem** elementos, int* i) {
     if (nodo == NULL) return;
@@ -129,12 +262,40 @@ void preOrdenHelp(tNodo* nodo, tipoElem** elementos, int* i) {
     preOrdenHelp(nodo->der, elementos, i);
 }
 
+/*****
+* void preOrdenHelp
+******
+* Resumen Función
+******
+* Input:
+* tNodo *nodo : Puntero a un nodo del ABB.
+* tipoElem** elementos: Doble puntero al tipo de dato del ABB, en este caso, de tipo entero(int)
+* int* i: Puntero a elemento int
+* .......
+******
+* Returns:
+* void, es una funcion recursiva auxiliar que recorre el ABB, pero no retorna nada.
+*****/
+
 tipoElem* preOrden(tABB* T) {
     tipoElem* elementos = (tipoElem*) malloc(sizeof(tipoElem) * size(T));
     int i = 0;
     preOrdenHelp(T->raiz, &elementos, &i);
     return elementos;
 }
+
+/*****
+* tipoElem* preOrden 
+******
+* Funcion que retorna un arreglo de los nodos en pre-orden
+******
+* Input:
+* tABB* T : Puntero a struct tipo tABB.
+* .......
+******
+* Returns:
+* tipoElem*, esta función devuelve un arreglo con el recorrido preOrden realizado por la funcion
+*****/
 
 tipoElem sucesorHelp(tNodo* nodo, tipoElem x, tipoElem* resultado) {
     if (nodo == NULL)
@@ -148,13 +309,51 @@ tipoElem sucesorHelp(tNodo* nodo, tipoElem x, tipoElem* resultado) {
     return 0;
 }
 
+/*****
+* tipoElem sucesorHelp 
+******
+* Funcion recursiva auxiliar para encontrar el sucesor
+******
+* Input:
+* tNodo *nodo : Puntero a un nodo del ABB.
+* tipoElem x :  Elemento del ABB de tipo entero(int) del cual queremos encontrar su sucesor.
+* tipoElem* resultado: Puntero al elemento del ABB, en este caso, de tipo entero (int).
+* .......
+******
+* Returns:
+* tipoElem, funcion recursiva auxiliar que retorna el valor del sucesor.
+*****/
+
 tipoElem sucesor(tABB* T, tipoElem x) {
     tipoElem resultado = 0;
     return sucesorHelp(T->raiz, x, &resultado);
 }
 
-/*    
-chupalo pato marico weno pa la tula, flamer pasao a semen, 
-aborto fallido de ballena con sarna ahora si veo puto
-xdxdxdxd
+/*****
+* tipoElem sucesor 
+******
+* Esta funciona hace uso de la función recursiva sucesorHelp con el fin de encontrar el sucesor de la variable x.
+* En el caso de que no se encuentre un sucesor, retorna 0.
+******
+* Input:
+* tABB* T : Puntero a struct tipo tABB.
+* tipoElem x : Valor del cual queremos encontrar su sucesor.
+* .......
+******
+* Returns:
+* tipoElem, esta función retorna el sucesor del parametro x, en caso de que no se encuentre, se retorna 0
+*****/
+/*
+                       __
+                     .'  '.
+                 _.-'/  |  \
+    ,        _.-"  ,|  /  0 `-.
+    |\    .-"       `--""-.__.'=====================-,
+    \ '-'`        .___.--._)=========================|
+     \            .'      |                          |
+      |     /,_.-'        |     PONGAME 100 :3       |
+    _/   _.'(             |                          |
+   /  ,-' \  \            |        PORFAUWU          |
+   \  \    `-'            |            <3            |
+    `-'                   '--------------------------'
 */

@@ -1,0 +1,5 @@
+Bloque de 50 asignado a partir del byte 1
+Bloque de 10 bytes NO puede ser asignado
+El bloque de 26 bytes liberado.
+El bloque de 24 bytes liberado.
+Toda la memoria dinámica pedida fue liberada
