@@ -45,7 +45,7 @@ int main() {
             while ((temp = getc(archivo_entrada)) != '\n')
                 ;
         }
-        printf("%c\n", operacion);
+        
         if (operacion == 'm') {
             moveToStart(&L1);
             espacio_suficiente = 0;
