@@ -79,7 +79,8 @@ int main() {
             bloque_temp[0] = getValue(&L2)[0];
             bloque_temp[1] = getValue(&L2)[1];
             erase(&L2);
-            
+            fprintf(archivo_salida, "Bloque de %d bytes liberado\n", bloque_temp[1] - bloque_temp[0] + 1);
+
             moveToStart(&L1);
 
             while (getValue(&L1)[0] < bloque_temp[0]) {
@@ -106,8 +107,6 @@ int main() {
             }
             
             insert(&L1, bloque_temp);
-            
-            fprintf(archivo_salida, "Bloque de %d bytes liberado\n", bloque_temp[1] - bloque_temp[0] + 1);
         }
     }
 

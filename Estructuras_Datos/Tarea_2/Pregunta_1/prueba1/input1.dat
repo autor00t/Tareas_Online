@@ -1,15 +1,11 @@
 200
-12
+9
 malloc 20
-malloc 40
-malloc 10
-free 5
-malloc 10
-malloc 2
-free 12
-malloc 10
-malloc 60
+malloc 50
+free 1
+malloc 70
 malloc 100
-free 30
-free 22
-
+free 71
+malloc 10
+free 21
+free 1

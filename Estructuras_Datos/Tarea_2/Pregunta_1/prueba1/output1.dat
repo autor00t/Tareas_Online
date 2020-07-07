@@ -1,13 +1,10 @@
 Bloque de 20 asignado a partir del byte 1
-Bloque de 40 asignado a partir del byte 21
-Bloque de 10 asignado a partir del byte 61
-El bloque de 16 bytes liberado.
-Bloque de 10 asignado a partir del byte 5
-Bloque de 2 asignado a partir del byte 15
-El bloque de 3 bytes liberado.
-Bloque de 10 asignado a partir del byte 71
-Bloque de 60 asignado a partir del byte 81
+Bloque de 50 asignado a partir del byte 21
+El bloque de 20 bytes liberado.
+Bloque de 70 asignado a partir del byte 71
 Bloque de 100 bytes NO puede ser asignado
-El bloque de 31 bytes liberado.
-El bloque de 8 bytes liberado.
-Quedaron 7 bloques sin liberar (93 bytes)
+El bloque de 70 bytes liberado.
+Bloque de 10 asignado a partir del byte 1
+El bloque de 50 bytes liberado.
+El bloque de 10 bytes liberado.
+Toda la memoria dinamica pedida fue liberada

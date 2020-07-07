@@ -43,6 +43,11 @@ int insert(tLista *L, tElemLista* item)
 int erase(tLista *L)
 {
     tNodo *temp = L->curr->sig;
+    
+    if (temp == L->tail) {
+        L->tail = L->curr;
+    }
+
     L->curr->sig = temp->sig;
     free((void *)temp);
 
