@@ -1,0 +1,17 @@
+Nombre: Nicolás Román
+Rol: 201973582-9
+Paralelo: 200
+
+
+Nombre: Matías González
+Rol: 201973580-2
+Paralelo: 200
+
+
+Nombre: Patricio Pérez
+Rol: 201973560-8
+Paralelo: 200
+
+Código: Para esta tarea, Matías González y Nicolás Román se enfocaron mayoritariamente en el desarrollo del TDA, por otra
+parte, Patricio Pérez mantuvo su atención en el main, cabe destacar que mientras un integrante del grupo lograba un avance
+en su código, los demás compilaban su programa para buscar errores o mejorar la estructura del mismo.
