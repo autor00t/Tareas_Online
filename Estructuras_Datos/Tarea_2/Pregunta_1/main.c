@@ -5,12 +5,12 @@
 int main() {
     FILE* archivo_entrada = fopen("input1.dat", "r");
     if (archivo_entrada == NULL) {
-        printf("Ha ocurrido un error al abrir el archivo.");
+        printf("Ha ocurrido un error al abrir el archivo.\n");
         exit(1);
     }
     FILE* archivo_salida = fopen("output1.dat", "w");
     if (archivo_salida == NULL) {
-        printf("Ha ocurrido un error al crear el archivo de salida.");
+        printf("Ha ocurrido un error al crear el archivo de salida.\n");
         exit(1);
     }
 

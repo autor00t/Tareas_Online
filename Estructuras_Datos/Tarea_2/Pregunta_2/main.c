@@ -6,7 +6,7 @@ int main() {
     FILE *archivo_entrada = fopen("input.txt", "r");
     if (archivo_entrada == NULL)
     {
-        printf("Ocurrió un error al abrir el archivo.");
+        printf("Ocurrió un error al abrir el archivo.\n");
         exit(1);
     }
 
