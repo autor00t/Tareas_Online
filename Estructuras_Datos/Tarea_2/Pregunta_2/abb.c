@@ -343,17 +343,3 @@ tipoElem sucesor(tABB* T, tipoElem x) {
 * Returns:
 * tipoElem, esta función retorna el sucesor del parametro x, en caso de que no se encuentre, se retorna 0
 *****/
-/*
-                       __
-                     .'  '.
-                 _.-'/  |  \
-    ,        _.-"  ,|  /  0 `-.
-    |\    .-"       `--""-.__.'=====================-,
-    \ '-'`        .___.--._)=========================|
-     \            .'      |                          |
-      |     /,_.-'        |     PONGAME 100 :3       |
-    _/   _.'(             |                          |
-   /  ,-' \  \            |        PORFAUWU          |
-   \  \    `-'            |            <3            |
-    `-'                   '--------------------------'
-*/
