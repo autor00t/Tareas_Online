@@ -1,7 +1,7 @@
 #include "oferta.h"
 #include "producto.h"
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 
 void initOferta(dictOferta *D, int m)
 {
@@ -9,7 +9,7 @@ void initOferta(dictOferta *D, int m)
 
     while (1.0 * original / m > 0.75)
     {
-        m++; //miren carso enrtoencre esta sotolcuoj, jpp: pero saocnera wn eas eaw enerible turcha wn -oscarito: chauspem la coretnea jp
+        m++; 
     }
 
     D->M = m;
@@ -29,8 +29,7 @@ int hashInsertOferta(dictOferta *D, tipoClave k, int cantidad_descuento, int mon
     temp.cantidad_descuento = cantidad_descuento;
     temp.monto_descuento = monto_descuento;
 
-    for (i = 1; D->HT[pos].clave != -1 && D->HT[pos].clave != k; ++i)
-    {
+    for (i = 1; D->HT[pos].clave != -1 && D->HT[pos].clave != k; ++i) {
         pos = (inicio + p(k, i)) % D->M;
     }
     if (D->HT[pos].clave == k)
@@ -57,9 +56,12 @@ int hashPositionOferta(dictOferta *D, tipoClave k)
         return -1;
 }
 
-tipoInfoOferta hashSearchOferta(dictOferta *D, int pos)
-{
-    return D->HT[pos].info;
+int hashSearchOfertaCantidad(dictOferta *D, int pos) {
+    return D->HT[pos].info.cantidad_descuento;
+}
+
+int hashSearchOfertaMonto(dictOferta *D, int pos) {
+    return D->HT[pos].info.monto_descuento;
 }
 
 void clear(dictOferta *D)
