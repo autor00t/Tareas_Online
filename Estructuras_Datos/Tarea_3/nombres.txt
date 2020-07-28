@@ -1,0 +1,14 @@
+Nombre: Nicolás Román Vallejo.
+ROL: 201973582-9.
+Paralelo: 200.
+Programó: Resolución de colusiones, parte del "main".
+
+Nombre: Matías Ignacio González Zamorano
+ROL: 201973580-2.
+Paralelo: 200.
+Programó: Funciones del TDA diccionario y heap.
+
+Nombre: Patricio Pérez Jiménez.
+ROL: 201973560-8.
+Paralelo: 200.
+Programó: Funciones de hashing, casos de prueba y parte del "main".
