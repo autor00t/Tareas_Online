@@ -24,7 +24,7 @@ int findMaxCantidad(tColaP *P) {
 }
 
 int findMaxMonto(tColaP *P) {
-    return P->array[1]->cantidad;
+    return P->array[1]->monto;
 }
 
 int sizeColaP(tColaP *P) {

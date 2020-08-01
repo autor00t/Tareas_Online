@@ -68,7 +68,7 @@ int main() {
     int cantidad_ranking, cantidad_clientes, cantidad_productos, codigo_producto;
     char temp;
 
-    fscanf(archivo_compras, "%d", &cantidad_ranking);
+    fscanf(archivo_compras, "%d", &cantidad_ranking); 
     tColaP ranking;
 
     initColaP(&ranking, cantidad_ranking);
