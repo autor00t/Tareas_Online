@@ -70,6 +70,7 @@ void crear_productos() {
     inv.codigo_producto = 911;
     strcpy(inv.nombre_producto, "Torres Gemelas");
     inv.precio = 2000;
+    fwrite(&inv, sizeof(producto), 1, fp);
 
     inv.codigo_producto = 9999;
     strcpy(inv.nombre_producto, "Año de graduacion");

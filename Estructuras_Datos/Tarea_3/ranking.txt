@@ -1,10 +1,13 @@
-27 Black Ice Shield 1 5436742
-81095 Submarino 1 2000000
-120 La Guitarra De Daurte 4 480480
-130 Daurte 1 130130
-16 Ram Con RGB 1 70000
-5032 Silla Gamer 1 60522
-6470 Anvorguesa 11 33040
-6560 Dragon Lore 5 9341
-2637 Lays 8 8200
-6969 Belle Delphine's Bath Water 1 6969
+27 Black Ice Shield 1 1
+81095 Submarino 1 1
+120 La Guitarra De Daurte 4 4
+130 Daurte 1 1
+5032 Silla Gamer 2 2
+16 Ram Con RGB 1 1
+6470 Anvorguesa 11 11
+6560 Dragon Lore 5 5
+2637 Lays 8 8
+6969 Belle Delphine's Bath Water 1 1
+4444 Profe Torres 1 1
+33 Mineros 1 1
+911 Torres Gemelas 1 1

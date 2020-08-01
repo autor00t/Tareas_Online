@@ -5,7 +5,7 @@
 
 
 void initColaP(tColaP *P, int tamano) {
-    P->array = (tipoElem*) malloc(sizeof(tipoElem) * tamano);
+    P->array = (tipoElem*) malloc(sizeof(tipoElem) * (tamano + 1));
     P->len = 0;
 }
 

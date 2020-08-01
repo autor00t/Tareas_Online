@@ -20,7 +20,7 @@ typedef struct {
 int main() {
     dictProducto Productos;
     dictOferta Ofertas;
-
+    
     FILE *archivo_producto = fopen("productos.dat", "r");
 
     if (archivo_producto == NULL) {
@@ -69,8 +69,8 @@ int main() {
     char temp;
 
     fscanf(archivo_compras, "%d", &cantidad_ranking);
-
     tColaP ranking;
+
     initColaP(&ranking, cantidad_ranking);
 
     
@@ -94,7 +94,7 @@ int main() {
 
             while ((temp = getc(archivo_compras)) != '\n')
                 ;
-            
+            //printf("%d\n", codigo_producto);
             insertColaP(&ranking, codigo_producto, &Productos, &Ofertas);
         }
     }
@@ -110,6 +110,9 @@ int main() {
         removeMax(&ranking);
     }
 
+    deleteColaP(&ranking);
+    clearProducto(&Productos);
+    clearOferta(&Ofertas);
     fclose(archivo_ranking);
 
     return 0;

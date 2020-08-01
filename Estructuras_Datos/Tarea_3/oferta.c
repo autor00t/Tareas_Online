@@ -64,7 +64,7 @@ int hashSearchOfertaMonto(dictOferta *D, int pos) {
     return D->HT[pos].info.monto_descuento;
 }
 
-void clear(dictOferta *D)
+void clearOferta(dictOferta *D)
 {
     free((void *)D->HT);
 }

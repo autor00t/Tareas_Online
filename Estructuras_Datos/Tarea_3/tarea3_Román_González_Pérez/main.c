@@ -110,6 +110,9 @@ int main() {
         removeMax(&ranking);
     }
 
+    deleteColaP(&ranking);
+    clearProducto(&Productos);
+    clearOferta(&Ofertas);
     fclose(archivo_ranking);
 
     return 0;
