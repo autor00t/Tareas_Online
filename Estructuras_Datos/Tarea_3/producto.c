@@ -68,12 +68,11 @@ int h(tipoClave k, int m) {
 }
 
 long h2(tipoClave k) {
-    return 3 * k * k + 2 * k + 7;
-    
-}
+    return 10 * k -7;
+}   
 
 long p(tipoClave k, int i) {
-    return i * h2(k);
+    return abs(i * h2(k));
 }
 
 void clearProducto(dictProducto *D) {

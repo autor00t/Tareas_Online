@@ -41,7 +41,7 @@ int main() {
         printf("Hubo un error al abrir el archivo ofertas.dat\n");
         exit(1);
     }
-
+    
     int M_productos, M_ofertas;
 
     fread(&M_productos, sizeof(int), 1, archivo_producto);
@@ -49,16 +49,16 @@ int main() {
     
     initProducto(&Productos, M_productos);
     initOferta(&Ofertas, M_ofertas);
-
+    
     producto temp_producto;
     oferta temp_oferta;
 
     int i, j;
-
+    
     for (i = 0; i < M_productos; i++) {
         fread(&temp_producto, sizeof(producto), 1, archivo_producto);
         hashInsertProducto(&Productos, temp_producto.codigo_producto, temp_producto.nombre_producto, temp_producto.precio);
-    }                   
+    }
     
     for (i = 0; i < M_ofertas; i++) {
         fread(&temp_oferta, sizeof(oferta),1, archivo_oferta);
@@ -70,10 +70,9 @@ int main() {
 
     fscanf(archivo_compras, "%d", &cantidad_ranking); 
     tColaP ranking;
-
+    
     initColaP(&ranking, cantidad_ranking);
 
-    
     while ((temp = getc(archivo_compras)) != '\n')
         ;
 
@@ -88,13 +87,13 @@ int main() {
 
         while ((temp = getc(archivo_compras)) != '\n')
             ;
-
+        
         for(j = 0; j < cantidad_productos; j++) {
             fscanf(archivo_compras, "%d", &codigo_producto);
-
-            while ((temp = getc(archivo_compras)) != '\n')
+            
+            while ((temp = getc(archivo_compras)) != '\n' && temp != EOF)
                 ;
-            //printf("%d\n", codigo_producto);
+            
             insertColaP(&ranking, codigo_producto, &Productos, &Ofertas);
         }
     }
