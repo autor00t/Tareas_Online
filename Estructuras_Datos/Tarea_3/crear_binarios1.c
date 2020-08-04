@@ -143,7 +143,7 @@ void crear_ofertas(){
     fwrite(&inv, sizeof(oferta), 1, fp);
 
     inv.codigo_producto = 6969;//
-    inv.cantidad_descuento=4;
+    inv.cantidad_descuento=2;
     inv.monto_descuento = 6969;
     fwrite(&inv, sizeof(oferta), 1, fp);
 
