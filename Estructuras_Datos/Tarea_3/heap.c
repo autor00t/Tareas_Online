@@ -148,7 +148,15 @@ void insertColaP(tColaP *P, int codigo, dictProducto* productos, dictOferta* ofe
             item.cantidad = 1;
             item.monto = hashSearchProductoPrecio(productos, posProducto);
 
-            P->array[++P->len]->codigo = item.codigo;
+            P->len++;
+
+            if (P->len >= P->array_size) {
+                P->array_size = P->len + 1;
+                P->array = (tipoElem **) realloc(P->array, sizeof(tipoElem *) * P->array_size);
+                P->array[P->len] = (tipoElem *)malloc(sizeof(tipoElem));
+            }
+
+            P->array[P->len]->codigo = item.codigo;
             P->array[P->len]->cantidad = item.cantidad;
             P->array[P->len]->monto = item.monto;
 
