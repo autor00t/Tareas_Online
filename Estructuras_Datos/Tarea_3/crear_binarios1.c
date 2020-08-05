@@ -19,7 +19,7 @@ void crear_productos() {
     FILE *fp = fopen("productos.dat", "wb");
 
     producto inv;
-    int i = 11;
+    int i = 12;
     fwrite(&i, sizeof(int), 1, fp);
 
     inv.codigo_producto = 29130542;
@@ -76,6 +76,12 @@ void crear_productos() {
     strcpy(inv.nombre_producto, "cortada de cocos");
     inv.precio = 5802;
     fwrite(&inv, sizeof(producto), 1, fp);
+
+    inv.codigo_producto = 2020;
+    strcpy(inv.nombre_producto, "Papel Higienico");
+    inv.precio = 3569;
+    fwrite(&inv, sizeof(producto), 1, fp);
+
     /*
     inv.codigo_producto = 1;
     strcpy(inv.nombre_producto, "Se busca polola");

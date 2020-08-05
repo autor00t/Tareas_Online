@@ -3,7 +3,6 @@
 #include "heap.h"
 #include <stdlib.h>
 
-
 void initColaP(tColaP *P, int tamano) {
     P->array_size = tamano + 1;
     P->array = (tipoElem**) malloc(sizeof(tipoElem*) * P->array_size);
@@ -124,13 +123,14 @@ void removeMax(tColaP *P) {
 
 void insertColaP(tColaP *P, int codigo, dictProducto* productos, dictOferta* ofertas) {
     int i, posProducto, posOferta, cantidad_descuentos = 0;
-
+    
     for (i = 1; i <= P->len && P->array[i]->codigo != codigo; i++)
         ;
     posProducto = hashPositionProducto(productos, codigo);
-    if (i <= P->len && P->array[i]->codigo == codigo) { 
+    
+    if (i <= P->len && P->array[i]->codigo == codigo) {
         P->array[i]->cantidad++;
-
+    
         posOferta = hashPositionOferta(ofertas, codigo);
 
         if (posOferta != -1) {
@@ -147,13 +147,13 @@ void insertColaP(tColaP *P, int codigo, dictProducto* productos, dictOferta* ofe
             item.codigo = codigo;
             item.cantidad = 1;
             item.monto = hashSearchProductoPrecio(productos, posProducto);
-
+            
             P->len++;
-
+            
             if (P->len >= P->array_size) {
                 P->array_size = P->len + 1;
                 P->array = (tipoElem **) realloc(P->array, sizeof(tipoElem *) * P->array_size);
-                P->array[P->len] = (tipoElem *)malloc(sizeof(tipoElem));
+                P->array[P->len] = (tipoElem *) malloc(sizeof(tipoElem));
             }
 
             P->array[P->len]->codigo = item.codigo;
