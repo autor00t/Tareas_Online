@@ -8,7 +8,8 @@ typedef struct {
 } tipoElem;
 
 typedef struct {
-    tipoElem* array;
+    tipoElem** array;
+    int array_size;
     int len;
 } tColaP;
 
